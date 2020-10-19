@@ -12,6 +12,7 @@ import datetime
 import config as cf
 
 from cogs import m10s_remainder
+from cogs import takumi_jyanken
 
 bot = commands.Bot(command_prefix="g!", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
