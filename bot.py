@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*- #
 
-from cogs.m10s_userinfo import m10s_userinfo
 from typing import Union
 import discord
 from discord.ext import commands
