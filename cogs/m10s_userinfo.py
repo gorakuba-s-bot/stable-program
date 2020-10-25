@@ -24,7 +24,7 @@ class m10s_userinfo(commands.Cog):
         async with aiohttp.ClientSession() as session:
             async with session.get(f'https://api.yudzuki.pw/v1/users/{target.id}',headers=headers) as rs:
                 if rs.status == 200:
-                    rtn = rs.json()
+                    rtn = await rs.json()
                     if rtn["result"]:
                         ydk_ev = rs.json()["settings"]["evaluate_value"]
                     else:
