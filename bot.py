@@ -16,10 +16,10 @@ from cogs import m10s_announce
 from cogs import m10s_userinfo
 
 bot = commands.Bot(command_prefix="g!", status=discord.Status.invisible,
-                   allowed_mentions=discord.AllowedMentions(everyone=False,users=False,roles=None),
+                   allowed_mentions=discord.AllowedMentions(everyone=False,users=False,roles=False),
                    intents=discord.Intents.all())
 bot.remaind=[]
-bot.color = 0x000000
+bot.color = 0xe8da1c
 bot.ydk_token = cf.ydk_token
 
 
@@ -49,6 +49,15 @@ async def on_ready():
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g!help"))
 
+
+@bot.command()
+async def credit(ctx):
+    e=discord.Embed(title="クレジット",description="SP thanks",color=bot.color)
+    e.add_field(name="takumi0213#0213",value="Botのソースコード制作/実行サーバー契約者")
+    e.add_field(name="mii-10#3110",value="Botのソースコード制作/早期認証Botデベロッパー")
+    e.add_field(name="結衣華❁⃘❀✩*⋆#1632",value="Embedのカラー選定")
+    e.add_field(name="葵 -あおい-#0782",value="ユーザー情報コマンド等での評価値の提供")
+    await ctx.send(embed=e)
 
 @bot.event
 async def on_command_error(ctx,error):

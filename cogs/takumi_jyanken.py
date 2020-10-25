@@ -15,20 +15,20 @@ class jyanken(commands.Cog):
     async def command(self, ctx,):
         def win(hand):
             embed = discord.Embed(
-                title="ジャンケン", description="ポイ!" + hand + "\nやった、私の勝ちだね。", color=0xffff00)
+                title="ジャンケン", description="ポイ!" + hand + "\nやった、私の勝ちだね。", color=self.bot.color)
             return embed
 
         def lose(hand):
             embed = discord.Embed(
-                title="ジャンケン", description="ポイ!" + hand + "\nあれ、負けちゃった。", color=0xffff00)
+                title="ジャンケン", description="ポイ!" + hand + "\nあれ、負けちゃった。", color=self.bot.color)
             return embed
 
         def aiko(hand):
             embed = discord.Embed(
-                title="ジャンケン", description="ポイ!" + hand + "\nあいこで･･･", color=0xffff00)
+                title="ジャンケン", description="ポイ!" + hand + "\nあいこで･･･", color=self.bot.color)
             return embed
         embed = discord.Embed(
-            title="ジャンケン", description="ジャンケンをするよ。\n最初はグー、ジャンケン…", color=0xffff00)
+            title="ジャンケン", description="ジャンケンをするよ。\n最初はグー、ジャンケン…", color=self.bot.color)
         msg = await ctx.send(embed=embed)
         await msg.add_reaction("\N{RAISED FIST}")
         await msg.add_reaction("\N{VICTORY HAND}")
@@ -38,7 +38,7 @@ class jyanken(commands.Cog):
                 reaction, user = await self.bot.wait_for("reaction_add", check=lambda r, u: r.message.id == msg.id and u.id == ctx.author.id and (r.emoji == "\N{RAISED FIST}" or r.emoji == "\N{VICTORY HAND}" or r.emoji == "\N{RAISED HAND WITH FINGERS SPLAYED}"), timeout=15)
             except asyncio.TimeoutError:
                 embed = discord.Embed(
-                    title="ジャンケン", description="15秒間操作がされなかったのでゲームを終了しました。", color=0xffff00)
+                    title="ジャンケン", description="15秒間操作がされなかったのでゲームを終了しました。", color=self.bot.color)
                 await ctx.send(embed=embed)
                 break
             else:

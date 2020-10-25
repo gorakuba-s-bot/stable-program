@@ -41,7 +41,7 @@ class m10s_remainder(commands.Cog):
         self.bot.cursor.execute("select * from remaind where id = ?",(int(rid),))
         i = self.bot.cursor.fetchone()
         if i:
-            e=discord.Embed(title="リマインド情報")
+            e=discord.Embed(title="リマインド情報",color=self.bot.color)
             try:
                 e.add_field(name="メンションする役職のID",value=f"{i['mention_role'] or '(役職なし)'}")
             except:
