@@ -46,4 +46,4 @@ class m10s_userinfo(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(m10s_userinfo)
+    bot.add_cog(m10s_userinfo(bot))

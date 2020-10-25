@@ -28,4 +28,4 @@ class m10s_announce(commands.Cog):
                 await ctx.send("> 送信できません！\n　メッセージの送信に失敗しました。")    
 
 def setup(bot):
-    bot.add_cog(m10s_announce)
+    bot.add_cog(m10s_announce(bot))
