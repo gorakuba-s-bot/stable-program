@@ -37,7 +37,7 @@ class m10s_userinfo(commands.Cog):
             badges+="💠"
 
         e=discord.Embed(color=self.bot.color)
-        e.set_author(name=badges+target,icon_url=target.avatar_url_as(static_format="png"))
+        e.set_author(name=badges+str(target),icon_url=target.avatar_url_as(static_format="png"))
         e.add_field(name="オンライン状況",value=target.status)
         e.add_field(name="Discord Bot:結月による評価値",value=ydk_ev if ydk_ev != -1 else "評価値が取得できませんでした")
         e.add_field(name="役職リスト",value="\n".join([i.mention for i in target.roles]))
