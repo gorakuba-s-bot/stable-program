@@ -1,4 +1,4 @@
-・ユーザー検索 → 構想は浮かんでる
+・ユーザー検索 → 構想は浮かんでる→https://github.com/gorakuba-s-bot/master/blob/4751b2b51583d91fdca1f05baeb176899cc85ef5/user.md#L1
 
 ・評価値による点数管理(葵さんの判断による) → 評価値取得APIは何とでもなりそうな感じ→API Ready→コード待ち
 
