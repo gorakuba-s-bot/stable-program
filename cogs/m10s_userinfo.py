@@ -10,7 +10,7 @@ from dateutil.relativedelta import relativedelta as rdelta
 
 class m10s_userinfo(commands.Cog):
     def __init__(self,bot):
-         self.bot = bot
+        self.bot = bot
 
     @commands.command(name="userinfo",aliases=["ui","user"])
     async def _info_of_user(self, ctx, target:Union[commands.MemberConverter,None]):

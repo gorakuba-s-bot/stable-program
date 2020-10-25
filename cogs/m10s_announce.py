@@ -6,7 +6,7 @@ from discord.ext import commands
 
 class m10s_announce(commands.Cog):
     def __init__(self,bot):
-         self.bot = bot
+        self.bot = bot
 
     @commands.command(name="announce")
     async def send_other_ch(self, ctx, title, *, text):
