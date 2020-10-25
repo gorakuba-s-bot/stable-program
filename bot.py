@@ -21,6 +21,7 @@ bot = commands.Bot(command_prefix="g!", status=discord.Status.invisible,
 bot.remaind=[]
 bot.color = 0xe8da1c
 bot.ydk_token = cf.ydk_token
+bot.developers = cf.bot_developers
 
 
 sqlite3.register_converter('json', json.loads)
