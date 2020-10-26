@@ -16,9 +16,8 @@ from cogs import m10s_announce
 from cogs import m10s_userinfo
 
 bot = commands.Bot(command_prefix="g!", status=discord.Status.invisible,
-                   allowed_mentions=discord.AllowedMentions(everyone=False,users=False,roles=False),
+                   allowed_mentions=discord.AllowedMentions(everyone=False),
                    intents=discord.Intents.all())
-bot.remaind=[]
 bot.color = 0xe8da1c
 bot.ydk_token = cf.ydk_token
 bot.developers = cf.bot_developers
@@ -59,6 +58,29 @@ async def credit(ctx):
     e.add_field(name="結衣華❁⃘❀✩*⋆#1632",value="Embedのカラー選定")
     e.add_field(name="葵 -あおい-#0782",value="ユーザー情報コマンド等での評価値の提供")
     await ctx.send(embed=e)
+
+@bot.command(name="set_status")
+async def change_status(ctx,*,text):
+    if ctx.author.id in bot.developers:
+        await bot.change_presence(activity=discord.Game(name=text))
+        await ctx.send("変更しました。")
+
+bot.remove_command("help")
+
+@bot.command(name="help")
+async def help_(ctx,into=None):
+    if into:
+        help_content=cf.helps.get(into,None)
+        if help_content:
+            e = discord.Embed(title="gorakuba's bot コマンドメニュー",description=f"> {into}のヘルプ\n　{help_content}",color=bot.color)
+        else:
+            e = discord.Embed(title="gorakuba's bot コマンドメニュー",description="> 該当のコマンドは見つかりませんでした！",color=bot.color)
+    else:
+        e = discord.Embed(title="gorakuba's bot コマンドメニュー",color=bot.color)
+        e.add_field(name="✨一般ユーザー向け",value="`userinfo`,`jyanken`,`remainder`,`help`",inline=False)
+        e.add_field(name="🔐管理ユーザー向け",value="`jishaku`,`announce`,`set_status`",inline=False)
+    await ctx.send(embed=e)
+
 
 @bot.event
 async def on_command_error(ctx,error):
