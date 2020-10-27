@@ -7,9 +7,9 @@ from discord.ext import commands
 import sqlite3
 import json
 
-
+# tokens
 import config as cf
-
+# cog
 from cogs import m10s_remainder
 from cogs import takumi_jyanken
 from cogs import m10s_announce
@@ -47,7 +47,7 @@ async def on_ready():
     m10s_announce.setup(bot)
     m10s_userinfo.setup(bot)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g!help"))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g!help | Ver0.1"))
 
 
 @bot.command()
