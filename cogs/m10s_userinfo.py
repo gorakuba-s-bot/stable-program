@@ -23,7 +23,7 @@ class m10s_userinfo(commands.Cog):
             "Authorization":f"Bearer {self.bot.ydk_token}"
         }
         async with aiohttp.ClientSession() as session:
-            async with session.get(f'https://api.yudzuki.pw/v1/users/{target.id}',headers=headers) as rs:
+            async with session.get(f'https://api.aoichaan0513.jp/v1/users/{target.id}',headers=headers) as rs:
                 if rs.status == 200:
                     rtn = await rs.json()
                     if rtn["result"]:
