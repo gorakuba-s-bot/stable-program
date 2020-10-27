@@ -2,7 +2,7 @@
 
 ・点数管理 → 0.5?間隔で点数管理できるように(結月のAPIを活かす)
 
-・Youtube,music再生 → 思惟奈ちゃんのソースから流用できる → モジュールが使えないため延期(https://github.com/github/dmca/blob/master/2020/10/2020-10-23-RIAA.md)
+・Youtube,music再生 → 思惟奈ちゃんのソースから流用できる → モジュールが使えないため延期(https://github.com/gorakuba-s-bot/master/issues/1 , https://github.com/github/dmca/blob/master/2020/10/2020-10-23-RIAA.md)
 
 ・リマインダー → 動作確認完了
 
