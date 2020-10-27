@@ -26,10 +26,7 @@ class m10s_userinfo(commands.Cog):
             async with session.get(f'https://api.aoichaan0513.jp/v1/users/{target.id}',headers=headers) as rs:
                 if rs.status == 200:
                     rtn = await rs.json()
-                    if rtn["result"]:
-                        ydk_ev = rtn["settings"]["evaluate_value"]
-                    else:
-                        ydk_ev = -1
+                    ydk_ev = rtn["settings"]["evaluate_value"]
                 else:
                     ydk_ev = -1
         
