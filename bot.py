@@ -90,7 +90,7 @@ async def on_command_error(ctx,error):
     """
     await ctx.send(f"> コマンド実行時エラー\n　{ctx.command.name}コマンドの実行時に次のエラーが発生しました。\n```{error}```")
 
-@bot.command()
+@bot.event
 async def on_command(ctx):
     e = discord.Embed(title="コマンド実行ログ",description=f"実行分:`{ctx.message.clean_content}`",color=bot.color)
     e.set_author(name=f"{ctx.author}({ctx.author.id})",icon_url=ctx.author.avatar_url_as(static_format="png"))
