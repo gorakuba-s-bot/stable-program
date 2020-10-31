@@ -42,8 +42,6 @@ class m10s_userinfo(commands.Cog):
             badges+="🛠"
         if 611730459402960907 in role_ids: #サーバーブースター
             badges+="✨"
-        if 749245514788241479 in role_ids: #Vip
-            badges+="🎀"
         if 676051183923757108 in role_ids: #SP-Vip
             badges+="🎗"
 
