@@ -47,7 +47,7 @@ async def on_ready():
     m10s_announce.setup(bot)
     m10s_userinfo.setup(bot)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g!help | Ver1.0"))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g!help | Ver1.0.1"))
 
 
 @bot.command()
