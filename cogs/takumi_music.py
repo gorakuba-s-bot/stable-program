@@ -222,7 +222,7 @@ class music(commands.Cog):
         if not self.bot.lp.get(str(ctx.guild.id), None):
             self.bot.lp[str(ctx.guild.id)] = False
         if not self.bot.mp.get(str(ctx.guild.id), None):
-            ebd = discord.Embed(title="gorakuba's bot-ミュージック操作パネル", color=self.bot.ec)
+            ebd = discord.Embed(title="gorakuba's bot-ミュージック操作パネル", color=self.bot.color)
             ebd.add_field(name="再生中の曲:", value="未読み込み")
             ebd.add_field(name="次の曲:", value="未読み込み")
             ebd.add_field(name="ループ:", value="未読み込み")
