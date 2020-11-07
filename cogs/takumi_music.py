@@ -135,7 +135,7 @@ class music(commands.Cog):
                     q=text,
                     type='video'
                 ).execute()
-                vid = search_response['items'][0]['id']['videoId']
+                vid = search_response.get('items',[{"id":{"videoId":None}}])[0]['id']['videoId']
                 if vid:
                     vurl = f"https://www.youtube.com/watch?v={vid}"
                 else:

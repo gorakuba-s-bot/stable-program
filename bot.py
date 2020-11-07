@@ -14,6 +14,7 @@ from cogs import m10s_remainder
 from cogs import takumi_jyanken
 from cogs import m10s_announce
 from cogs import m10s_userinfo
+from cogs import takumi_music
 
 bot = commands.Bot(command_prefix="g!", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
@@ -21,6 +22,7 @@ bot = commands.Bot(command_prefix="g!", status=discord.Status.invisible,
 bot.color = 0xe8da1c
 bot.ydk_token = cf.ydk_token
 bot.developers = cf.bot_developers
+bot.GAPI_TOKEN = cf.google_api_key
 
 
 sqlite3.register_converter('json', json.loads)
@@ -46,6 +48,7 @@ async def on_ready():
     takumi_jyanken.setup(bot)
     m10s_announce.setup(bot)
     m10s_userinfo.setup(bot)
+    takumi_music.setup(bot)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g!help | Ver1.0"))
 
@@ -77,7 +80,7 @@ async def help_(ctx,into=None):
             e = discord.Embed(title="gorakuba's bot コマンドメニュー",description="> 該当のコマンドは見つかりませんでした！",color=bot.color)
     else:
         e = discord.Embed(title="gorakuba's bot コマンドメニュー",color=bot.color)
-        e.add_field(name="✨一般ユーザー向け",value="`userinfo`,`jyanken`,`remainder`,`help`",inline=False)
+        e.add_field(name="✨一般ユーザー向け",value="`userinfo`,`jyanken`,`remainder`,`help`,`music'`(これは必ず引数に入れて詳細をご確認ください。)",inline=False)
         e.add_field(name="🔐管理ユーザー向け",value="`jishaku`,`announce`,`set_status`",inline=False)
     await ctx.send(embed=e)
 
