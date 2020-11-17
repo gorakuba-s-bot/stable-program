@@ -58,6 +58,7 @@ async def credit(ctx):
     e=discord.Embed(title="クレジット",description="SP thanks",color=bot.color)
     e.add_field(name="takumi0213#0213",value="Botのソースコード制作/実行サーバー契約者")
     e.add_field(name="mii-10#3110",value="Botのソースコード制作/早期認証Botデベロッパー")
+    e.add_field(name="たんぽぽ#8093",value="データベースの管理"")
     e.add_field(name="結衣華❁⃘❀✩*⋆#1632",value="Embedのカラー選定")
     e.add_field(name="葵 -あおい-#0782",value="ユーザー情報コマンド等での評価値の提供")
     await ctx.send(embed=e)
