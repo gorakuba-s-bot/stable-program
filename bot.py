@@ -14,6 +14,7 @@ from cogs import m10s_remainder
 from cogs import takumi_jyanken
 from cogs import m10s_announce
 from cogs import m10s_userinfo
+from cogs import takumi_music
 
 bot = commands.Bot(command_prefix="g!", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
@@ -47,6 +48,7 @@ async def on_ready():
     takumi_jyanken.setup(bot)
     m10s_announce.setup(bot)
     m10s_userinfo.setup(bot)
+    takumi_music.setup(bot)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g!help | Ver1.1"))
 

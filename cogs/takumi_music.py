@@ -27,7 +27,7 @@ ytdlopts = {
     'source_address': '0.0.0.0'  # ipv6 addresses cause issues sometimes
 }
 
-class music(commands.Cog):
+class takumi_music(commands.Cog):
     """music in discord.py"""
 
     def __init__(self, bot):
@@ -445,4 +445,4 @@ class music(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(music(bot))
+    bot.add_cog(takumi_music(bot))
