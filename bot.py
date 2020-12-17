@@ -80,6 +80,11 @@ async def debug_off(ctx):
        await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g/help | Ver1.2"))
        await ctx.send("デバックモードを無効にしました。")
 
+@bot.command()
+    async def ping(ctx):
+        latency = bot.latency
+        await ctx.send(latency)
+
 bot.remove_command("help")
 
 @bot.command(name="help")
