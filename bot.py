@@ -16,7 +16,7 @@ from cogs import m10s_announce
 from cogs import m10s_userinfo
 from cogs import takumi_music
 
-bot = commands.Bot(command_prefix="g!", status=discord.Status.invisible,
+bot = commands.Bot(command_prefix="g/", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
                    intents=discord.Intents.all())
 bot.color = 0xe8da1c
@@ -50,7 +50,7 @@ async def on_ready():
     m10s_userinfo.setup(bot)
     takumi_music.setup(bot)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g!help | Ver1.1"))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g/help | Ver1.2"))
 
 
 @bot.command()
@@ -58,7 +58,6 @@ async def credit(ctx):
     e=discord.Embed(title="クレジット",description="SP thanks",color=bot.color)
     e.add_field(name="takumi0213#0213",value="Botのソースコード制作/実行サーバー契約者")
     e.add_field(name="mii-10#3110",value="Botのソースコード制作/早期認証Botデベロッパー")
-    e.add_field(name="たんぽぽ#8093",value="データベースの管理")
     e.add_field(name="結衣華❁⃘❀✩*⋆#1632",value="Embedのカラー選定")
     e.add_field(name="葵 -あおい-#0782",value="ユーザー情報コマンド等での評価値の提供")
     await ctx.send(embed=e)
@@ -68,6 +67,18 @@ async def change_status(ctx,*,text):
     if ctx.author.id in bot.developers:
         await bot.change_presence(activity=discord.Game(name=text))
         await ctx.send("変更しました。")
+
+@bot.command(name="debug_on")
+async def debug_on(ctx):
+    if ctx.author.id in bot.developers
+       await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="デバックモード中 | g/help"))
+       await ctx.send("デバックモードを有効にしました。")
+
+@bot.command(name="debug_off")
+async def debug_off(ctx):
+    if ctx.author.id in bot.developers
+       await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g/help | Ver1.2"))
+       await ctx.send("デバックモードを無効にしました。")
 
 bot.remove_command("help")
 
