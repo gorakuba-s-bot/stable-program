@@ -70,13 +70,13 @@ async def change_status(ctx,*,text):
 
 @bot.command(name="debug_on")
 async def debug_on(ctx):
-    if ctx.author.id in bot.developers
+    if ctx.author.id in bot.developers:
        await bot.change_presence(status=discord.Status.dnd, activity=discord.Game(name="デバックモード中 | g/help"))
        await ctx.send("デバックモードを有効にしました。")
 
 @bot.command(name="debug_off")
 async def debug_off(ctx):
-    if ctx.author.id in bot.developers
+    if ctx.author.id in bot.developers:
        await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g/help | Ver1.2"))
        await ctx.send("デバックモードを無効にしました。")
 
