@@ -94,8 +94,8 @@ async def help_(ctx,into=None):
             e = discord.Embed(title="gorakuba's bot コマンドメニュー",description="> 該当のコマンドは見つかりませんでした！",color=bot.color)
     else:
         e = discord.Embed(title="gorakuba's bot コマンドメニュー",color=bot.color)
-        e.add_field(name="✨一般ユーザー向け",value="`userinfo`,`jyanken`,`remainder`,`help`,`music'`(これは必ず引数に入れて詳細をご確認ください。)",inline=False)
-        e.add_field(name="🔐管理ユーザー向け",value="`jishaku`,`announce`,`set_status`",inline=False)
+        e.add_field(name="✨一般ユーザー向け",value="`help`,`jyanken`,`ping`,`remainder`,`userinfo[ui]`,`music`(これは必ず引数に入れて詳細をご確認ください。)",inline=False)
+        e.add_field(name="🔐管理ユーザー向け",value="`announce`,`debug_on[off]`,`jishaku`,`set_status`",inline=False)
     await ctx.send(embed=e)
 
 
