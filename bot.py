@@ -15,6 +15,7 @@ from cogs import takumi_jyanken
 from cogs import m10s_announce
 from cogs import m10s_userinfo
 from cogs import takumi_music
+from cogs import takumi_ping
 
 bot = commands.Bot(command_prefix="g/", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
@@ -49,6 +50,7 @@ async def on_ready():
     m10s_announce.setup(bot)
     m10s_userinfo.setup(bot)
     takumi_music.setup(bot)
+    takumi_ping.setup(bot)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g/help | Ver1.2"))
 
@@ -79,11 +81,6 @@ async def debug_off(ctx):
     if ctx.author.id in bot.developers:
        await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g/help | Ver1.2"))
        await ctx.send("デバックモードを無効にしました。")
-
-@bot.command()
-    async def ping(ctx):
-        latency = bot.latency
-        await ctx.send(latency)
 
 bot.remove_command("help")
 
