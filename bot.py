@@ -17,7 +17,7 @@ from cogs import m10s_userinfo
 from cogs import takumi_music
 from cogs import takumi_ping
 
-bot = commands.Bot(command_prefix="g/", status=discord.Status.invisible,
+bot = commands.Bot(command_prefix="g.", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
                    intents=discord.Intents.all())
 bot.color = 0xe8da1c
