@@ -16,6 +16,7 @@ from cogs import m10s_announce
 from cogs import m10s_userinfo
 from cogs import takumi_music
 from cogs import takumi_ping
+from cogs import takumi_suiso
 
 bot = commands.Bot(command_prefix="g.", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
@@ -51,6 +52,7 @@ async def on_ready():
     m10s_userinfo.setup(bot)
     takumi_music.setup(bot)
     takumi_ping.setup(bot)
+    takumi_suiso.setup(bot)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g.help | Ver1.2.1"))
 
