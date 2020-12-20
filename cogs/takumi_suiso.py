@@ -3,51 +3,38 @@
 import discord
 from discord.ext import commands
 import asyncio
-import re
 
 class takumi_suiso(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
         
-    @bot.event
-    async def on_message(message):
-        if re.search "プシュ" in message.content:
+    @commands.Cog.listener
+    async def on_message(self,message):
+        if "プシュ" in message.content:
             await message.channel.send("プシュー")
-
-    @bot.event
-    async def on_message(message):
-        if re.search "水素の音" in message.content:
+        if "水素の音" in message.content:
             await message.channel.send("あ～あぁぁぁぁぁぁ～～水素の音ぉ～")
-    
-    @bot.event
-    async def on_message(message):
-        if re.fullmatch "水素" in message.content:
+
+        if message.content == "g.kasi":
+            e = discord.Embed(title="水素の音 歌詞",description="ｻｲｷﾝ ﾃﾞｷﾔｽ… \nなんか健康のために 気遣ってなんかやってることあります？\nあっ！水素水飲んでます 水素水！\nこっち見て。ジャジャン！\nえ！\nほらこれ！\nえ！ \nすごいでしょ！ \nなんですかこれ！\nパンパンでしょ！パンパン \nすごい全然違うほら！\n開けてみたいでしょ～？ \nうん、みたーい！\n行きますよー！ \nせーのっ！ \nあぁ～！水素の音ォ～！！",color=0x66ffff)
+            e.set_footer(text=f"水素は命！")
+            e.timestamp = message.created_at
+
+            await message.channel.send(embed=e)
+
+        
+        if "水素" == message.content:
             await message.channel.send("水素はすごいんだよ！！！")
-
-    @bot.event
-    async def on_message(message):
-        if re.fullmatch "suiso" in message.content:
+        if "suiso" == message.content:
             await message.channel.send("Suiso is amazing!!!")
-
-    @bot.event
-    async def on_message(message):
-        if re.fullmatch "水槽" in message.content:
+        if "水槽" == message.content:
             await message.channel.send("水槽？ちがうちがう！**水素**だからね？")
-
-    @bot.event
-    async def on_message(message):
-        if re.fullmatch "suisou" in message.content:
+        if "suisou" == message.content:
             await message.channel.send("Suisou? No different! Because it’s Suiso, right?")
-
-    @bot.event
-    async def on_message(message):
-        if re.fullmatch "彗星" in message.content:
+        if "彗星" == message.content:
             await message.channel.send("彗星？ちゃんと聞いてた？す・い・そ　だってば！")
-
-    @bot.event
-    async def on_message(message):
-        if re.fullmatch "suisei" in message.content:
+        if "suisei" == message.content:
             await message.channel.send("Suisei? Did you hear properly? Su I So!")
 
 def setup(bot):
