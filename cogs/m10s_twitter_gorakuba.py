@@ -31,7 +31,7 @@ class m10s_twinotif_gorakuba(commands.Cog):
         ret = [self.gtwi_fu(i)[0] for i in self.target]
         for i in range(len(ret)):
             if not self.last_id[i] == ret[i][0]:
-                self.last_id = ret[i][0]
+                self.last_id[i] = ret[i][0]
                 tweet = ret[i][1]
                 embed = discord.Embed(description=tweet["text"], color=int(
                     tweet["user"]["profile_background_color"], 16))
