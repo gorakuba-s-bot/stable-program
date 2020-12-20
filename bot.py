@@ -16,7 +16,6 @@ from cogs import m10s_announce
 from cogs import m10s_userinfo
 from cogs import takumi_music
 from cogs import takumi_ping
-from cogs import takumi_suiso
 
 bot = commands.Bot(command_prefix="g.", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
