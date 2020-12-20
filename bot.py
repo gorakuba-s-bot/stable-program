@@ -18,6 +18,7 @@ from cogs import takumi_music
 from cogs import takumi_ping
 from cogs import takumi_suiso
 from cogs import m10s_twitter_gorakuba
+from cogs import takumi_twitter_camp
 
 bot = commands.Bot(command_prefix="g.", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
@@ -55,8 +56,9 @@ async def on_ready():
     takumi_ping.setup(bot)
     takumi_suiso.setup(bot)
     m10s_twitter_gorakuba.setup(bot)
+    takumi_twitter_camp.setup(bot)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g.help | Ver1.2.1"))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g.help | Ver1.3"))
 
 
 @bot.command()

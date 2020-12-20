@@ -11,14 +11,14 @@ import twitter
 
 
 
-class m10s_twinotif_gorakuba(commands.Cog):
+class takumi_twinotif_camp(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
         self.twi = twitter.Twitter(auth=twitter.OAuth(cf.T_Acs_Token, cf.T_Acs_SToken, cf.T_API_key, cf.T_API_SKey))
-        self.target = ["inutanuking","39_encho","Pentonic005","3bis28"]
+        self.target = ["tsukasa_yt","Nadeshiko_gogo"]
         self.last_id = [self.gtwi_fu(i)[0] for i in self.target]
-        self.ch = self.bot.get_channel(679652940742787114)
+        self.ch = self.bot.get_channel(790217848370888714)
         self.loop_task.start()
 
 
@@ -46,4 +46,4 @@ class m10s_twinotif_gorakuba(commands.Cog):
                 await self.ch.send(embed=embed)
 
 def setup(bot):
-    bot.add_cog(m10s_twinotif_gorakuba(bot))
+    bot.add_cog(takumi_twinotif_camp(bot))
