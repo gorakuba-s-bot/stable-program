@@ -9,7 +9,7 @@ class takumi_suiso(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_message(self,message):
         if "プシュ" in message.content:
             await message.channel.send("プシュー")
