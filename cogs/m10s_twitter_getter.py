@@ -16,8 +16,8 @@ class m10s_twinotif(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.twi = twitter.Twitter(auth=twitter.OAuth(cf.T_Acs_Token, cf.T_Acs_SToken, cf.T_API_key, cf.T_API_SKey))
-        self.target = "test"
-        self.last_id = self.gtwi_fu(self.target)[0]
+        self.target = ["test"]
+        self.last_id = [self.gtwi_fu(i)[0] for i in self.target]
         self.ch = self.bot.get_channel(679652940742787114)
         # ↓test
         # self.ch = self.bot.get_channel(754636969698525235)
@@ -35,21 +35,22 @@ class m10s_twinotif(commands.Cog):
 
     @tasks.loop(seconds=10)
     async def loop_task(self):
-        ret = self.gtwi_fu(self.target)
-        if not self.last_id == ret[0]:
-            self.last_id = ret[0]
-            tweet = ret[1]
-            embed = discord.Embed(title="Twitter アップデート！",description=tweet["text"], color=int(
-                tweet["user"]["profile_background_color"], 16))
-            embed.set_author(name=f'{tweet["user"]["name"]}(@{tweet["user"]["screen_name"]})',
-                                url=f'https://twitter.com/{tweet["user"]["screen_name"]}', icon_url=tweet["user"]["profile_image_url_https"])
-            try:
-                embed.set_image(
-                    url=tweet["entities"]["media"][0]["media_url_https"])
-            except:
-                pass
-            embed.add_field(name="Twitterで見る", value=f'https://twitter.com/{tweet["user"]["screen_name"]}/status/{tweet["id"]}')
-            await self.ch.send(embed=embed)
+        ret = [self.gtwi_fu(i)[0] for i in self.target]
+        for i in range(len(ret)):
+            if not self.last_id[i] == ret[i][0]:
+                self.last_id = ret[i][0]
+                tweet = ret[i][1]
+                embed = discord.Embed(title="Twitter アップデート！",description=tweet["text"], color=int(
+                    tweet["user"]["profile_background_color"], 16))
+                embed.set_author(name=f'{tweet["user"]["name"]}(@{tweet["user"]["screen_name"]})',
+                                    url=f'https://twitter.com/{tweet["user"]["screen_name"]}', icon_url=tweet["user"]["profile_image_url_https"])
+                try:
+                    embed.set_image(
+                        url=tweet["entities"]["media"][0]["media_url_https"])
+                except:
+                    pass
+                embed.add_field(name="Twitterで見る", value=f'https://twitter.com/{tweet["user"]["screen_name"]}/status/{tweet["id"]}')
+                await self.ch.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(m10s_twinotif(bot))
