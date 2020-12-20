@@ -28,7 +28,7 @@ class m10s_twinotif_gorakuba(commands.Cog):
 
     @tasks.loop(seconds=10)
     async def loop_task(self):
-        ret = [self.gtwi_fu(i)[0] for i in self.target]
+        ret = [self.gtwi_fu(i) for i in self.target]
         for i in range(len(ret)):
             if not self.last_id[i] == ret[i][0]:
                 self.last_id[i] = ret[i][0]
