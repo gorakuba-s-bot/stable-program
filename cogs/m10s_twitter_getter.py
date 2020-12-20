@@ -16,9 +16,9 @@ class m10s_twinotif(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.twi = twitter.Twitter(auth=twitter.OAuth(cf.T_Acs_Token, cf.T_Acs_SToken, cf.T_API_key, cf.T_API_SKey))
-        self.target = "MRSERVER_INFO"
+        self.target = "test"
         self.last_id = self.gtwi_fu(self.target)[0]
-        self.ch = self.bot.get_channel(754339790014382110)
+        self.ch = self.bot.get_channel(679652940742787114)
         # ↓test
         # self.ch = self.bot.get_channel(754636969698525235)
         self.loop_task.start()
