@@ -54,7 +54,8 @@ async def on_ready():
     takumi_music.setup(bot)
     takumi_ping.setup(bot)
     takumi_suiso.setup(bot)
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.WARNING)
+    logging.basicConfig(level=logging.INFO)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g.help | Ver1.3"))
 
