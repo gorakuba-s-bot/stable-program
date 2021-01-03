@@ -351,7 +351,7 @@ class takumi_music(commands.Cog):
                             description=f"キューの曲数:{len(self.bot.qu[str(ctx.guild.id)])}曲\nリアクションで操作でき、そのたびに操作パネルが更新されます。\n▶:(一時停止中)再生の再開,⏸:(再生中)一時停止,⏹:ストップ,⏭:スキップ,🔁:ループ切替,🔼:ボリュームを上げる,🔽:ボリュームを下げる,⬇:パネルを下に持ってくる", color=self.bot.color)
         if ctx.voice_client.is_paused():
             ebd.add_field(name="現在一時停止中",
-                          value="再開には`s-play`か▶リアクション", inline=False)
+                          value="再開には`g.play`か▶リアクション", inline=False)
         ebd.add_field(
             name="再生中の曲:", value=f"[{self.bot.qu[str(ctx.guild.id)][0]['video_title']}]({self.bot.qu[str(ctx.guild.id)][0]['video_url']})(from {self.bot.qu[str(ctx.guild.id)][0]['video_source']})")
         if len(self.bot.qu[str(ctx.guild.id)]) > 1:
