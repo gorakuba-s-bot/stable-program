@@ -56,7 +56,7 @@ async def on_ready():
     takumi_suiso.setup(bot)
     logging.basicConfig(level=logging.WARNING)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g.help | Ver1.3"))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g.help | Ver1.3.1"))
 
 
 @bot.command()
