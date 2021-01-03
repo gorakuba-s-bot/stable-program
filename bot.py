@@ -86,6 +86,11 @@ async def debug_off(ctx):
        await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g/help | Ver1.2"))
        await ctx.send("デバックモードを無効にしました。")
 
+@bot.command(name="check")
+async def change_status(ctx,*,text):
+    if ctx.author.id in bot.developers:
+        await ctx.send("ようこそ！ゴラクバ！クラフターズ(ゴラクラ)へ！\n ユーザー認証の際に問題が発生したためお知らせしています。\n 安全のため「あなたがこのサーバーに入ってきた理由」の確認を行っています。\n お手数をおかけしますが、ご協力をお願いします。\n (このメッセージは運営チームが定めるリストの中にあなたのアカウントがある際に自動送信されます。)")
+
 bot.remove_command("help")
 
 @bot.command(name="help")
