@@ -67,10 +67,10 @@ async def on_ready():
 async def on_voice_state_update(m, b, a):
     if m.guild.id == 592199606323118081:
         role = m.guild.get_role(795600507103215637)
-        if (not b.channel is None) and (a.channel is None):
+        if (b.channel is None) and (not a.channel is None):
             # 参加時処理
             await m.add_roles(role)
-        elif (b.channel is None) and (not a.channel is None):
+        elif (not b.channel is None) and (a.channel is None):
             # 退出時処理
             await m.remove_roles(role)
 
