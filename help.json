@@ -5,18 +5,18 @@
     },
     {
         "title":"userinfoコマンドについて",
-        "desciprion":"・自身の権限によって表示される内容が変わります。\n　`g![userinfo/ui] [option:ターゲットユーザーのIDやメンションなど]`\n　該当ユーザーの情報やDiscord Bot:結月での評価値が表示されます。"
+        "description":"・自身の権限によって表示される内容が変わります。\n　`g![userinfo/ui] [option:ターゲットユーザーのIDやメンションなど]`\n　該当ユーザーの情報やDiscord Bot:結月での評価値が表示されます。"
     },
     {
         "title":"jyankenコマンドについて",
-        "desciprion":"`g!jyanken`\n　Botとじゃんけんができます。"
+        "description":"`g!jyanken`\n　Botとじゃんけんができます。"
     },
     {
         "title":"remainderコマンドについて",
-        "desciprion":"`g!remainder [set/check/delete] [(set/check)リマインダーID/(set)リマインダーのテキスト] [option:(set)メンションする役職のID]`\n　特定の時間に通知するリマインダー機能について設定や確認、削除が行えます。"
+        "description":"`g!remainder [set/check/delete] [(set/check)リマインダーID/(set)リマインダーのテキスト] [option:(set)メンションする役職のID]`\n　特定の時間に通知するリマインダー機能について設定や確認、削除が行えます。"
     },
     {
         "title":"musicコマンドについて",
-        "desciprion":"`g!play [URL/検索キーワード]`\n音楽を再生します。\n☆この機能は思惟奈ちゃんの音楽機能とほぼ同等の機能です(制作:mii-10#3110)。詳しいコマンド解説は`s-help`の9ページ目およびその項目名を`s-help`の引数に入れてご確認ください。"
+        "description":"`g!play [URL/検索キーワード]`\n音楽を再生します。\n☆この機能は思惟奈ちゃんの音楽機能とほぼ同等の機能です(制作:mii-10#3110)。詳しいコマンド解説は`s-help`の9ページ目およびその項目名を`s-help`の引数に入れてご確認ください。"
     }
 ]
