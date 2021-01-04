@@ -5,6 +5,8 @@ import discord
 from discord.ext import commands
 import logging
 
+import asyncio
+
 import sqlite3
 import json
 
@@ -26,6 +28,8 @@ bot.color = 0xe8da1c
 bot.ydk_token = cf.ydk_token
 bot.developers = cf.bot_developers
 bot.GAPI_TOKEN = cf.google_api_key
+
+bot.version = "1.3.1"
 
 
 sqlite3.register_converter('json', json.loads)
@@ -56,8 +60,19 @@ async def on_ready():
     takumi_suiso.setup(bot)
     logging.basicConfig(level=logging.WARNING)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g.help | Ver1.3.1"))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"g.help | Ver{bot.version}"))
 
+
+@bot.event
+async def on_voice_state_update(m, b, a):
+    if m.guild.id == 592199606323118081:
+        role = m.guild.get_role(795600507103215637)
+        if (not b.channel is None) and (a.channel is None):
+            # 参加時処理
+            await m.add_roles(role)
+        elif (b.channel is None) and (not a.channel is None):
+            # 退出時処理
+            await m.remove_roles(role)
 
 @bot.command()
 async def credit(ctx):
@@ -69,7 +84,7 @@ async def credit(ctx):
     await ctx.send(embed=e)
 
 @bot.command(name="set_status")
-async def change_status(ctx,*,text):
+async def status_set(ctx,*,text):
     if ctx.author.id in bot.developers:
         await bot.change_presence(activity=discord.Game(name=text))
         await ctx.send("変更しました。")
@@ -77,35 +92,59 @@ async def change_status(ctx,*,text):
 @bot.command(name="debug_on")
 async def debug_on(ctx):
     if ctx.author.id in bot.developers:
-       await bot.change_presence(status=discord.Status.offline)
+       await bot.change_presence(status=discord.Status.invisible)
        await ctx.send("デバックモードを有効にしました。")
 
 @bot.command(name="debug_off")
 async def debug_off(ctx):
     if ctx.author.id in bot.developers:
-       await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="g/help | Ver1.3.1"))
+       await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"g/help | Ver{bot.version}"))
        await ctx.send("デバックモードを無効にしました。")
 
 @bot.command(name="check")
-async def change_status(ctx):
+async def user_check(ctx):
     if ctx.author.id in bot.developers:
         await ctx.send("ようこそ！ゴラクバ！クラフターズ(ゴラクラ)へ！\n ユーザー認証の際に問題が発生したためお知らせしています。\n 安全のため「あなたがこのサーバーに入ってきた理由」の確認を行っています。\n お手数をおかけしますが、ご協力をお願いします。\n (このメッセージは運営チームが定めるリストの中にあなたのアカウントがある際に自動送信されます。)")
 
 bot.remove_command("help")
 
 @bot.command(name="help")
-async def help_(ctx,into=None):
-    if into:
-        help_content=cf.helps.get(into,None)
-        if help_content:
-            e = discord.Embed(title="gorakuba's bot コマンドメニュー",description=f"> {into}のヘルプ\n　{help_content}",color=bot.color)
-        else:
-            e = discord.Embed(title="gorakuba's bot コマンドメニュー",description="> 該当のコマンドは見つかりませんでした！",color=bot.color)
-    else:
-        e = discord.Embed(title="gorakuba's bot コマンドメニュー",color=bot.color)
-        e.add_field(name="✨一般ユーザー向け",value="`help`,`jyanken`,`ping`,`suiso`,`remainder`,`userinfo[ui]`,`music`(これは必ず引数に入れて詳細をご確認ください。)",inline=False)
-        e.add_field(name="🔐管理ユーザー向け",value="`announce`,`debug_on[off]`,`jishaku`,`set_status`",inline=False)
-    await ctx.send(embed=e)
+async def help_(ctx):
+    with open("help.json",mode="r") as j:
+        helps = json.load(j)
+
+    page = 0
+    pmax = len(helps)-1
+    
+    def get_help(page):
+        e = discord.Embed(title=helps[page]["title"],description=helps[page]["description"])
+        e.set_footer(text=f"{page + 1}/{pmax}")
+        return e
+
+    msg = await ctx.send(embed=get_help(page))
+    await msg.add_reaction("⬅")
+    await msg.add_reaction("➡")
+
+    while True:
+        try:
+            r, u = await bot.wait_for("reaction_add", check=lambda r, u: r.message.id == msg.id and u.id == ctx.message.author.id, timeout=30)
+        except asyncio.TimeoutError:
+            break
+        try:
+            await msg.remove_reaction(r, u)
+        except discord.Forbidden:
+            pass
+        if str(r) == "➡":
+            if page == pmax:
+                page = 0
+            else:
+                page = page + 1
+        elif str(r) == "⬅":
+            if page == 0:
+                page = pmax
+            else:
+                page = page - 1
+        await msg.edit(embed=get_help(page))
 
 
 @bot.event
