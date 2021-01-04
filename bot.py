@@ -98,7 +98,7 @@ async def debug_on(ctx):
 @bot.command(name="debug_off")
 async def debug_off(ctx):
     if ctx.author.id in bot.developers:
-       await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"g/help | Ver{bot.version}"))
+       await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"g.help | Ver{bot.version}"))
        await ctx.send("デバックモードを無効にしました。")
 
 @bot.command(name="check")
