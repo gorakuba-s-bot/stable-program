@@ -117,7 +117,7 @@ async def help_(ctx):
     pmax = len(helps)-1
     
     def get_help(page):
-        e = discord.Embed(title=helps[page]["title"],description=helps[page]["description"])
+        e = discord.Embed(title=helps[page]["title"],description=helps[page]["description"],color = bot.color)
         e.set_footer(text=f"{page + 1}/{pmax}")
         return e
 
