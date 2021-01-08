@@ -19,17 +19,6 @@ class m10s_userinfo(commands.Cog):
         if target is None:
             target = ctx.author
 
-        headers ={
-            "Authorization":f"Bearer {self.bot.ydk_token}"
-        }
-        async with aiohttp.ClientSession() as session:
-            async with session.get(f'https://api.aoichaan0513.jp/v1/users/{target.id}',headers=headers) as rs:
-                if rs.status == 200:
-                    rtn = await rs.json()
-                    ydk_ev = rtn["settings"]["evaluate_value"]
-                else:
-                    ydk_ev = -1
-        
         badges = ""
         role_ids = [i.id for i in target.roles]
         if 770996612503175258 in role_ids: #開発者チーム
