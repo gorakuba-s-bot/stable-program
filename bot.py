@@ -10,6 +10,8 @@ import asyncio
 import sqlite3
 import json
 
+import datetime
+
 # tokens
 import config as cf
 # cog
@@ -20,7 +22,7 @@ from cogs import m10s_userinfo
 from cogs import takumi_music
 from cogs import takumi_ping
 from cogs import takumi_suiso
-
+from cogs import takumi_other
 bot = commands.Bot(command_prefix="g.", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
                    intents=discord.Intents.all())
@@ -28,6 +30,8 @@ bot.color = 0xe8da1c
 bot.ydk_token = cf.ydk_token
 bot.developers = cf.bot_developers
 bot.GAPI_TOKEN = cf.google_api_key
+
+bot.StartTime = datetime.datetime.now()
 
 bot.version = "1.4.0"
 
@@ -58,6 +62,7 @@ async def on_ready():
     takumi_music.setup(bot)
     takumi_ping.setup(bot)
     takumi_suiso.setup(bot)
+    takumi_other.setup(bot)
     logging.basicConfig(level=logging.WARNING)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"g.help | Ver{bot.version}"))
