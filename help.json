@@ -1,7 +1,7 @@
 [
     {
         "title":"gorakuba's bot コマンドメニュー(⬅/➡でページ切り替え)",
-        "description":"> 一般ユーザー向け\n`help`,`jyanken`,`ping`,`suiso`,`remainder`,`userinfo`(ui),`music`\n> 管理ユーザー向け\n`announce`,`debug_on/off`,`jishaku`,`set_status`"
+        "description":"> 一般ユーザー向け\n`help`,`jyanken`,`ping`,`suiso`,`remainder`,`userinfo`(ui),`music`,`botinfo`\n> 管理ユーザー向け\n`announce`,`debug_on/off`,`jishaku`,`set_status`"
     },
     {
         "title":"userinfoコマンドについて",
@@ -18,5 +18,9 @@
     {
         "title":"musicコマンドについて",
         "description":"`g.play [URL/検索キーワード]`\n音楽を再生します。\n☆この機能は思惟奈ちゃんの音楽機能とほぼ同等の機能です(制作:mii-10#3110)。詳しいコマンド解説は`s-help`の9ページ目およびその項目名を`s-help`の引数に入れてご確認ください。"
+    },
+    {
+        "title":"botinfoコマンドについて",
+        "description":"`g.botinfo`\n　Botの状態を見ることができます。"
     }
 ]
