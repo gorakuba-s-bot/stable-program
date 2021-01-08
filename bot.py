@@ -27,7 +27,6 @@ bot = commands.Bot(command_prefix="g.", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
                    intents=discord.Intents.all())
 bot.color = 0xe8da1c
-bot.ydk_token = cf.ydk_token
 bot.developers = cf.bot_developers
 bot.GAPI_TOKEN = cf.google_api_key
 
