@@ -27,7 +27,7 @@ class other(commands.Cog):
             '%Y{0}%m{1}%d{2} %H{3}%M{4}%S{5}').format(*'年月日時分秒'))
         embed.add_field(name="Pythonバージョン",
                         value=platform.python_version())
-        embed.add_field(name="プロセッサ", value=platform.processor())
+        embed.add_field(name="プロセッサ", value="Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz")
         embed.add_field(name="OS", value=f"{platform.system()} {platform.release()}({platform.version()})")
         embed.add_field(
             name="メモリ", value=f"全てのメモリ容量:{allmem}GB\n使用量:{used}GB({memparcent}%)\n空き容量{ava}GB({100-memparcent}%)")
