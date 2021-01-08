@@ -29,7 +29,7 @@ bot.ydk_token = cf.ydk_token
 bot.developers = cf.bot_developers
 bot.GAPI_TOKEN = cf.google_api_key
 
-bot.version = "1.3.1"
+bot.version = "1.4.0"
 
 
 sqlite3.register_converter('json', json.loads)
