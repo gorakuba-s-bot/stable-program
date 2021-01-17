@@ -50,6 +50,12 @@ bot.cursor.execute("create table if not exists remaind(\
     time real not null,\
     chid integer not null)")
 
+bot.cursor.execute("create table if not exists vote(\
+    name integer primary key not null,\
+    panel integer not null,\
+    targets json not null\
+    )")
+
 
 @bot.event
 async def on_ready():
