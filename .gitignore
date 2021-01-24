@@ -1,1 +1,5 @@
 .vscode/
+config.py
+main.db
+musicfile/
+__pycache__/
