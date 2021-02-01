@@ -20,7 +20,7 @@ class m10s_vote(commands.Cog):
         self.bot = bot
         self.vt = bot.get_emoji(800296846181793822)
 
-    @commands.group
+    @commands.group()
     async def vote(self, ctx:commands.Context):
         if not ctx.invoked_subcommand:
             await ctx.reply("> 投票システム\n　`create [name] *[targets]`")
