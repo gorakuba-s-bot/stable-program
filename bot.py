@@ -32,7 +32,7 @@ bot.GAPI_TOKEN = cf.google_api_key
 
 bot.StartTime = datetime.datetime.now()
 
-bot.version = "1.4.0"
+bot.version = "1.5.0"
 
 
 sqlite3.register_converter('json', json.loads)
