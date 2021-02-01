@@ -31,7 +31,7 @@ class m10s_vote(commands.Cog):
             await ctx.reply("> 投票システム\n　すでにその名前の投票が存在します。")
         else:
             rt = "\n"
-            msg = await ctx.send(embed=discord.Embed(title=f"投票:'{name}'",description=f"立候補者:```{rt.join(targets)}```"))
+            msg = await ctx.send(embed=discord.Embed(title=f"投票:'{name}'",description=f"立候補者:```\n{rt.join(targets)}```"))
             await msg.add_reaction(self.vt)
             self.bot.cursor.execute("INSERT INTO vote (name,panel,targets) VALUES (?,?,?)", (name, msg.id, json.dumps(list(targets))))
             with open(f"{name}.json",mode="w") as f:
