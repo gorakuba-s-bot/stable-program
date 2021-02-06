@@ -41,7 +41,7 @@ class other(commands.Cog):
             await ctx.send(ctx._("einfo-needarg"))
         else:
             embed = discord.Embed(
-                title=emj.name, description=f"id:{emj.id}", color=self.bot.ec)
+                title=emj.name, description=f"id:{emj.id}", color=self.bot.color)
             embed.add_field(name=ctx._("einfo-animated"), value=emj.animated)
             embed.add_field(name=ctx._("einfo-manageout"), value=emj.managed)
             if emj.user:
