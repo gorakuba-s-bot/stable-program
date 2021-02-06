@@ -1,7 +1,7 @@
 [
     {
         "title":"gorakuba's bot コマンドメニュー(⬅/➡でページ切り替え)",
-        "description":"> 一般ユーザー向け\n`help`,`jyanken`,`ping`,`suiso`,`remainder`,`userinfo`(ui),`music`,`botinfo`\n> 管理ユーザー向け\n`announce`,`debug_on/off`,`jishaku`,`set_status`"
+        "description":"> 一般ユーザー向け\n`help`,`jyanken`,`ping`,`suiso`,`remainder`,`userinfo`(ui),`music`,`botinfo`,`emojiinfo`\n> 管理ユーザー向け\n`announce`,`debug_on/off`,`jishaku`,`set_status`,`manage_features`"
     },
     {
         "title":"userinfoコマンドについて",
@@ -22,5 +22,9 @@
     {
         "title":"botinfoコマンドについて",
         "description":"`g.botinfo`\n　Botの状態を見ることができます。"
+    },
+    {
+        "title":"emojiinfoコマンドについて",
+        "description":"`g.emojiinfo`\n　指定した絵文字の情報を見ることができます。"
     }
 ]
