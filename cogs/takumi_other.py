@@ -8,10 +8,6 @@ import asyncio
 import platform
 import re
 import psutil
-from dateutil.relativedelta import relativedelta as rdelta
-import traceback
-import m10s_util as ut
-import textwrap
 
 
 class other(commands.Cog):
