@@ -46,8 +46,7 @@ class m10s_vote(commands.Cog):
     @vote.command()
     async def view(self, ctx:commands.Context, name:str):
         if ctx.author.id in self.bot.developers:
-            rs = self.bot.cursor.execute("SELECT * FROM vote WHERE name = ?",(name,)).fetchone()
-            if rs:
+            if self.bot.cursor.execute("SELECT * FROM vote WHERE name = ?",(name,)).fetchone():
                 with open(f"{name}.json",mode="r") as f:
                     j = json.load(f)
                 page = 0
@@ -57,8 +56,8 @@ class m10s_vote(commands.Cog):
                     u = self.bot.get_user(j["votes"][page]["user"][1])
                     e = discord.Embed(color = self.bot.color)
                     e.set_author(name=f"{u}({u.id})",icon_url=u.avatar_url_as(static_format="png"))
-                    for i in range(len(rs["targets"])):
-                        e.add_field(name=rs["targets"][i],value=["votes"][page]["result"][i])
+                    for i in range(len(j["votes"][page]["result"])):
+                        e.add_field(name=j["votes"][page]["result"][i][0],value=j["votes"][page]["result"][i][1])
                     e.set_footer(text=f"{page + 1}/{pmax + 1}")
                     return e
 
