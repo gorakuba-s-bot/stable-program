@@ -50,10 +50,10 @@ class m10s_vote(commands.Cog):
                 with open(f"{name}.json",mode="r") as f:
                     j = json.load(f)
                 page = 0
-                pmax = len(j)-1
+                pmax = len(j["votes"])-1
                 
                 def get_result(page):
-                    u = self.bot.get_user(j["votes"][page]["user"])
+                    u = self.bot.get_user(j["votes"][page]["user"][1])
                     e = discord.Embed(color = self.bot.color)
                     e.set_author(name=f"{u}({u.id})",icon_url=u.avatar_url_as(static_format="png"))
                     for i in range(len(j["votes"][page]["result"])):
