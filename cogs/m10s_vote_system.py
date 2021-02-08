@@ -53,7 +53,7 @@ class m10s_vote(commands.Cog):
                 pmax = len(j)-1
                 
                 def get_result(page):
-                    u = self.bot.get_user(j["votes"][page]["user"][1])
+                    u = self.bot.get_user(j["votes"][page]["user"])
                     e = discord.Embed(color = self.bot.color)
                     e.set_author(name=f"{u}({u.id})",icon_url=u.avatar_url_as(static_format="png"))
                     for i in range(len(j["votes"][page]["result"])):
