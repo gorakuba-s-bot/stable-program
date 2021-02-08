@@ -23,6 +23,7 @@ from cogs import takumi_music
 from cogs import takumi_ping
 from cogs import takumi_suiso
 from cogs import takumi_other
+from cogs import m10s_vote_system
 bot = commands.Bot(command_prefix="g.", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
                    intents=discord.Intents.all())
@@ -68,6 +69,7 @@ async def on_ready():
     takumi_ping.setup(bot)
     takumi_suiso.setup(bot)
     takumi_other.setup(bot)
+    m10s_vote_system.setup(bot)
     logging.basicConfig(level=logging.WARNING)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"g.help | Ver{bot.version}"))
