@@ -71,7 +71,19 @@ async def on_ready():
     takumi_other.setup(bot)
     m10s_vote_system.setup(bot)
     logging.basicConfig(level=logging.WARNING)
-    print(f"logined as {bot.user.name}(id:{bot.user.id})")
+    print('------------------')
+    print('ログインしました。')
+    print(bot.user.name)
+    print(bot.user.id)
+    print('------------------')
+    
+    files = ["m10s_remainder", "takumi_jyanken", "m10s_announce", "m10s_userinfo", "takumi_music", "takumi_ping",
+             "takumi_suiso", "takumi_other", "m10s_vote_system"
+            ]
+      
+    print(f"Extension {files} Load.")
+    print('------------------')
+      
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"g.help | Ver{bot.version}"))
 
 
