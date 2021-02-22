@@ -33,7 +33,7 @@ bot.GAPI_TOKEN = cf.google_api_key
 
 bot.StartTime = datetime.datetime.now()
 
-bot.version = "1.5.0"
+bot.version = "1.5.1"
 
 
 sqlite3.register_converter('json', json.loads)
@@ -104,7 +104,6 @@ async def credit(ctx):
     e.add_field(name="takumi0213#0213",value="Botのソースコード制作/実行サーバー契約者")
     e.add_field(name="mii-10#3110",value="Botのソースコード制作/早期認証Botデベロッパー")
     e.add_field(name="結衣花❀.*･ﾟ#0217",value="Embedのカラー選定")
-    e.add_field(name="葵 -あおい-#0782",value="ユーザー情報コマンド等での評価値の提供")
     await ctx.send(embed=e)
 
 @bot.command(name="set_status")
